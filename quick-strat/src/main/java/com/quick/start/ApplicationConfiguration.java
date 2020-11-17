@@ -4,20 +4,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.quick.start.service.impl.HelloWorldEnglishServiceImpl;
-import com.quick.start.service.impl.HelloWorldFrenchServiceImpl;
+import com.quick.start.service.HelloWorldService;
+import com.quick.start.service.impl.HelloWorldFactory;
 
 @Configuration
 public class ApplicationConfiguration {
+	
+	@Bean
+	public HelloWorldFactory helloWorldFactory() {
+		return new HelloWorldFactory();
+	}
+
 
 	@Bean
 	@Profile("english")
-	public HelloWorldEnglishServiceImpl helloWorldEnglishServiceImpl() {
-		return new HelloWorldEnglishServiceImpl();
+	public HelloWorldService helloWorldEnglishServiceImpl(HelloWorldFactory factory) {
+		return factory.createHelloWorldService("en");
 	}
 	@Bean
 	@Profile({"default","french"})
-	public HelloWorldFrenchServiceImpl helloWorldFrenchServiceImpl() {
-		return new HelloWorldFrenchServiceImpl();
+	public HelloWorldService helloWorldFrenchServiceImpl(HelloWorldFactory factory) {
+		return factory.createHelloWorldService("fr");
 	}
 }

@@ -22,12 +22,6 @@ public class QuickStratApplication {
 	public static void main(String[] args) {
 	ApplicationContext ctx=	SpringApplication.run(QuickStratApplication.class, args);
 	
-	InjectedByConstructorService injectedByConstructorService =(InjectedByConstructorService) ctx.getBean("injectedByConstructorService");
-	injectedByConstructorService.getMessage();
-	
-	InjectedBySetterService injectedBySetterService =(InjectedBySetterService) ctx.getBean("injectedBySetterService");
-	injectedBySetterService.getMessage();
-	
 	HelloWorldController helloWorldController =(HelloWorldController) ctx.getBean("helloWorldController");
 	helloWorldController.getMessage();
 	
