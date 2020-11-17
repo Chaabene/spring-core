@@ -16,6 +16,8 @@ import com.quick.start.service.impl.InjectedBySetterService;
  */
 @SpringBootApplication
 public class QuickStratApplication {
+	
+	
 
 	public static void main(String[] args) {
 	ApplicationContext ctx=	SpringApplication.run(QuickStratApplication.class, args);

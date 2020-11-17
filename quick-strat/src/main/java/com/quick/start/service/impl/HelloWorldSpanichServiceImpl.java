@@ -7,11 +7,11 @@ import com.quick.start.service.HelloWorldService;
  *
  */
 
-public class HelloWorldFrenchServiceImpl implements HelloWorldService {
+public class HelloWorldSpanichServiceImpl implements HelloWorldService {
 
 	
 	public void helloWorld(String from) {
-		System.out.println("Salut tt le monde " +from);
+		System.out.println("Hola mundo " +from);
 	}
 
 
