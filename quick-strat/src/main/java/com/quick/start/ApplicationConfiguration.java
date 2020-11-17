@@ -2,6 +2,7 @@ package com.quick.start;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 import com.quick.start.service.HelloWorldService;
@@ -17,13 +18,19 @@ public class ApplicationConfiguration {
 
 
 	@Bean
-	@Profile("english")
-	public HelloWorldService helloWorldEnglishServiceImpl(HelloWorldFactory factory) {
-		return factory.createHelloWorldService("en");
-	}
-	@Bean
-	@Profile({"default","french"})
-	public HelloWorldService helloWorldFrenchServiceImpl(HelloWorldFactory factory) {
+	@Profile({"french","default"})
+	@Primary
+	public HelloWorldService helloWorldFrenchService(HelloWorldFactory factory) {
 		return factory.createHelloWorldService("fr");
+	}
+	
+	@Bean
+	public HelloWorldService helloWorldSpanichService(HelloWorldFactory factory) {
+		return factory.createHelloWorldService("es");
+	}
+
+	@Bean(name="english")
+	public HelloWorldService helloWorldEnglishService(HelloWorldFactory factory) {
+		return factory.createHelloWorldService("en");
 	}
 }
