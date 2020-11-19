@@ -10,8 +10,9 @@ import com.quick.start.service.HelloWorldService;
 public class HelloWorldSpanichServiceImpl implements HelloWorldService {
 
 	
-	public void helloWorld(String from) {
+	public String helloWorld(String from) {
 		System.out.println("Hola mundo " +from);
+		return "Hola mundo " +from;
 	}
 
 

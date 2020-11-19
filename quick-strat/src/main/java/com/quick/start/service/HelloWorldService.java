@@ -5,6 +5,6 @@ package com.quick.start.service;
  *
  */
 public interface HelloWorldService {
-	 void helloWorld(String from);
+	 String helloWorld(String from);
 
 }

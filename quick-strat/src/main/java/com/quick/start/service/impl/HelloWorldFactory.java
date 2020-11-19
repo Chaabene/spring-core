@@ -16,6 +16,9 @@ public class HelloWorldFactory {
 		case "es":
 			helloWorldService= new HelloWorldSpanichServiceImpl();
 			break;
+		case "gr":
+			helloWorldService= new HelloWorldGermanServiceImpl();
+			break;
 
 		default:
 			helloWorldService= new HelloWorldFrenchServiceImpl();
